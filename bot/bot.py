@@ -6,8 +6,8 @@ import toml
 
 # load config and environment variables (e.g. client secret)
 CONFIG = toml.load('./config.toml')
+TOKEN = toml.load('./token.toml')['token']['discord_token']
 
-TOKEN = CONFIG['env']['discord_token']
 GUILD = CONFIG['env']['discord_guild']
 
 # read active extensions (cogs)

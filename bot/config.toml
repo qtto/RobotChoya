@@ -1,8 +1,7 @@
 [bot]
 description = "A mechanical Choya to help organize raids."
 prefix = "-"
-extensions = ["cogs.ping"]
+extensions = ["cogs.ping","cogs.about"]
 
 [env]
-discord_token = "" # Discord client secret goes here
 discord_guild = 359755584653885440 # Or any other server id
