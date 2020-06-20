@@ -22,9 +22,9 @@ pip install -r requirements.txt
 ```
 
 ## Running the bot
-[Create a bot account](https://discordpy.readthedocs.io/en/latest/discord.html) and create `config.toml`.
+[Create a bot account](https://discordpy.readthedocs.io/en/latest/discord.html) and create `token.toml`.
 ```bash
-cp config.toml.example config.toml
+cp token.toml.example token.toml
 ```
 
 Make sure to add your client secret to config.toml.
