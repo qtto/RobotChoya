@@ -7,15 +7,8 @@ class About(commands.Cog):
 
     @commands.Cog.listener()
     async def on_connect(self):
-        presence = "to your commands. Ping @" + self.bot.user.name + " for help."
+        presence = "to your commands. Use -help for more information."
         await self.bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name=presence))
-
-
-    @commands.Cog.listener()
-    async def on_message(self, message):
-        for user in message.mentions:
-            if user == self.bot.user:
-                await message.channel.send("I got pinged")
 
 def setup(bot):
     bot.add_cog(About(bot))
