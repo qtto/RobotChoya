@@ -3,6 +3,11 @@
 Robot Choya is a Discord bot to help organize raids for [Wipe], written using [discord.py](https://github.com/Rapptz/discord.py).
 
 ## Setting up
+Clone the repository
+```bash
+git clone https://github.com/qtto/RobotChoya.git
+```
+
 Optional: create a virtual environment and activate it.
 ```bash
 python -m venv /path/to/venv
