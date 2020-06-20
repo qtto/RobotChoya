@@ -22,9 +22,7 @@ class Bot(commands.Bot):
         print(f'Logged in as {self.user.name}.')
 
         for guild in self.guilds:
-            if guild.id == GUILD:
-                print(f'Connected to {guild.name}.')
-                break
+            print(f'Connected to {guild.name}.')
 
 # initialize an instance of the bot and set parameters
 bot = Bot(command_prefix=CONFIG['bot']['prefix'],
