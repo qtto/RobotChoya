@@ -3,7 +3,10 @@ activate.sh
 run.sh
 
 # Secret stuff
-config.toml
+token.toml
+
+# Pycharm stuff
+.idea/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
