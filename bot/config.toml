@@ -1,7 +1,10 @@
 [bot]
 description = "A mechanical Choya to help organize raids."
 prefix = "-"
-extensions = ["cogs.ping","cogs.about"]
+extensions = ["cogs.ping","cogs.about","cogs.lfg.lfg"]
+
+[embed]
+color = 0xc8dedd
 
 [env]
 discord_guild = 359755584653885440 # Or any other server id
