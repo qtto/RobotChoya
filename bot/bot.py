@@ -25,7 +25,7 @@ class Bot(commands.Bot):
             print(f'Connected to {guild.name}.')
 
 # initialize an instance of the bot and set parameters
-bot = Bot(command_prefix=CONFIG['bot']['prefix'],
+bot = Bot(command_prefix=commands.when_mentioned_or(CONFIG['bot']['prefix']),
           description=CONFIG['bot']['description'])
 
 # load extension modules and start the bot

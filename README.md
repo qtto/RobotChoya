@@ -27,7 +27,7 @@ pip install -r requirements.txt
 cp token.toml.example token.toml
 ```
 
-Make sure to add your client secret to config.toml.
+Make sure to add your client secret to token.toml.
 
 Finally, run the bot.
 ```bash
