@@ -40,34 +40,47 @@ def create_lfg_embed(json, author, bot):
     return embed
 
 def create_table(participants):
-    entries = ["user_id", "role", "mechanic"]
-    max_length = []
-    for entry in entries:
-        max_length.append(len(entry))
+    entries = {}
     for participant in participants:
-        for entry in entries:
-            participant[entry] = str(participant[entry])
-            if (len(participant[entry]) > max_length[entries.index(entry)]):
-                max_length[entries.index(entry)] = len(participant[entry])
+        for key in participant.keys():
+            if key not in entries:
+                entries.update({key : len(key)})
+            participant[key] = str(participant[key])
+            if (len(participant[key]) > entries[key]):
+                entries[key] = len(participant[key])
 
-    table = "╔" + ("═"*(max_length[0] + 4)) + \
-            "╦" + ("═"*(max_length[1] + 4)) + \
-            "╦" + ("═"*(max_length[2] + 4)) + "╗\n"
-    table += "║  " + entries[0] + (" "*(max_length[0]-len(entries[0]))) + \
-             "  ║  " + entries[1] + (" "*(max_length[1]-len(entries[1]))) + \
-             "  ║  " + entries[2] + (" "*(max_length[2]-len(entries[2]))) + "  ║\n"
-    table += "╠" + ("═"*(max_length[0] + 4)) + \
-             "╬" + ("═"*(max_length[1] + 4)) + \
-             "╬" + ("═"*(max_length[2] + 4)) + "╣\n"
-
+    table = "╔"
+    for index in range(0, len(entries)):
+        table += ("═"*(entries[list(entries.keys())[index]] + 4))
+        if (index != len(entries)-1):
+            table += "╦"
+        else:
+            table += "╗\n"
+    table += "║"
+    for index in range(0, len(entries)):
+        table += "  " + list(entries.keys())[index] + (" "*(entries[list(entries.keys())[index]] - len(list(entries.keys())[index]))) + "  ║"
+        if (index == len(entries) -1):
+            table += "\n"
+    table += "╠"
+    for index in range(0, len(entries)):
+        table += ("═"*(entries[list(entries.keys())[index]] + 4))
+        if (index != len(entries)-1):
+            table += "╬"
+        else:
+            table += "╣\n"
     for participant in participants:
-        table += "║  " + participant[entries[0]] + (" "*(max_length[0]-len(participant[entries[0]]))) + \
-               "  ║  " + participant[entries[1]] + (" "*(max_length[1]-len(participant[entries[1]]))) + \
-               "  ║  " + participant[entries[2]] + (" "*(max_length[2]-len(participant[entries[2]]))) + "  ║\n"
-
-    table += "╚" + ("═"*(max_length[0] + 4)) + \
-             "╩" + ("═"*(max_length[1] + 4)) + \
-             "╩" + ("═"*(max_length[2] + 4)) + "╝"
+        table += "║"
+        for index in range(0, len(participant.keys())):
+            table += "  " + participant[list(participant.keys())[index]] + \
+                    (" "*(entries[list(entries.keys())[index]] - len(participant[list(participant.keys())[index]]))) + "  ║"
+        table += "\n"
+    table += "╚"
+    for index in range(0, len(entries)):
+        table += ("═"*(entries[list(entries.keys())[index]] + 4))
+        if (index != len(entries)-1):
+            table += "╩"
+        else:
+            table += "╝\n"
 
     return table
 
